@@ -1,24 +1,32 @@
 // import logo from './logo.svg';
 // import { Fragment } from "react";
 // import './App.css';
-import React from "react";
+import React, { Component } from "react";
 import Header from "./Header";
 import './App.css';
+import './common/common.css'
 
-function App() {
-  let subscribers=[
-    {
-      id:1,
-      name: 'Virat Kohli',
-      phone: 9999999999
-    },
-    {
-      id:2,
-      name: 'Rohit Sharma',
-      phone: 8888888888 
+class App extends Component {
+  // let subscribers=[
+  //   {
+  //     id:1,
+  //     name: 'Virat Kohli',
+  //     phone: 9999999999
+  //   },
+  //   {
+  //     id:2,
+  //     name: 'Rohit Sharma',
+  //     phone: 8888888888 
+  //   }
+  // ]
+  constructor()
+  {
+    super();
+    this.state={
+      subscribersListToShow:[]
     }
-  ]
-  
+  }
+  render(){
   return (
     <div>
         <Header heading="Phone Directory"></Header>
@@ -30,7 +38,7 @@ function App() {
             <span className="grid-item phone-heading">Phone</span>
           </div>
           {
-            subscribers.map(sub =>{
+            this.state.subscribersListToShow.map(sub =>{
               return <div key={sub.id} className="grid-container">
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
@@ -43,6 +51,7 @@ function App() {
         </div>
       </div>
   );
+}
 }
 
 export default App;
